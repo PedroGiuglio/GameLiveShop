@@ -5,7 +5,9 @@ const ItemDetail = () => {
     const {id} = useParams()
 
   return (
-    <div>Detalle del id: { id }</div>
+    <div className="m-5">
+        <h3>Detalle del id: { id }</h3>
+    </div>
   )
 }
 export default ItemDetail

@@ -17,10 +17,10 @@ function App() {
     <>
     <BrowserRouter>
     <NavBar/>
-    <Routes>
+    <Routes>  
+      <Route path='/' element={<ItemListContainer/>}/>
+      <Route path={'/item/:id'} element={<ItemDetail/>}/>
       <Route path='' element={<Clicker/>}/>
-      <Route path='/shop' element={<ItemListContainer/>}/>
-      <Route path={'shop/item/:id'} element={<ItemDetail/>}/>
       <Route path={'*'} element={<Error404/>}/>
     </Routes>
     </BrowserRouter>
