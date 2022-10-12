@@ -6,10 +6,10 @@ const NavBar = () => {
   return (
     <header>
     <h3><Link to='/'>GameLive-Shop</Link></h3>
-    <li><Link to='/clicker'>PLAYSTATION</Link></li>
+    <li><Link to='/PlayStation'>PLAYSTATION</Link></li>
     <li>XBOX</li>
     <li>NINTENDO</li>
-    <CartWidget></CartWidget>
+    <CartWidget/>
     </header>
   )
 }

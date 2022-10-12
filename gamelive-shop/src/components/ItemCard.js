@@ -10,7 +10,7 @@ const ItemCard = ({id, name, price, pictureUrl}) => {
     <h2 className="card-title uppercase font-bold">${price}</h2>
     <p className="uppercase font-bold">{name}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">{id}</button>
+      <button className="btn btn-primary">Buy Now!</button>
     </div>
   </div>
 </div>

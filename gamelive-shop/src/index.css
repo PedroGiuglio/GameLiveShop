@@ -53,13 +53,12 @@ header li {
 .itemList{
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .urlImg{
-  height: 250px;
+  height: 180px;
 }
 
 .itemCard{
@@ -70,13 +69,31 @@ header li {
 }
 
 .clickerSection{
-  width: 100%;
-  height: 50vh;
+  width: 150px;
+  height: 50px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -70px;
+
 }
+
+.clickerSection .sectionCounter{
+  display: flex;
+  flex-direction: row;
+  width: 150px;
+  height: auto;
+}
+
+.clickerSection .sectionCounter .counter{
+  width: 70px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
 
 .sectionCardDetail{
   display: flex;
@@ -84,8 +101,8 @@ header li {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70vh;
-  background-color: black;
+  height: 80vh;
+  background-color: rgb(114, 114, 114);
 }
 
 

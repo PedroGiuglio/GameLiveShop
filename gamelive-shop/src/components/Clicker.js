@@ -42,11 +42,12 @@ const Clicker = () => {
     
   return (
     <div className="clickerSection">
-        <button onClick={clickHandlerLess} className="btn m-5 bg-red-600 w-24 border-0">-</button>
-        <div className="m-5 bg-yellow-200 w-24 text-center">{ counter }</div>
-        <button onClick={clickHandlerMore} className="btn m-5 bg-green-600 w-24 border-0">+</button>
-        {/* <div className="m-5 bg-sky-600 w-52"><h1>{time}</h1></div> */}
-        <button className="btn m-5 bg-grey">Sumar al carrito</button>
+      <div className="sectionCounter">
+      <button onClick={clickHandlerLess} className="btn bg-red-600 border-0 rounded-none">-</button>
+        <div className="  text-center counter">{ counter }</div>
+        <button onClick={clickHandlerMore} className="btn  bg-green-600 border-0 rounded-none">+</button>
+      </div>
+        <button className="btn btn-info rounded-none text-white">Sumar al carrito</button>
     </div>
   )
 }
