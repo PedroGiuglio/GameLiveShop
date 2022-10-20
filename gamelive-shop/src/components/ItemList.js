@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { FavProvider } from "./context/AddContext"
 import ItemCard from "./ItemCard"
 
 const products = [
@@ -34,9 +35,11 @@ const ItemList = () => {
 }
 
   return (
+    <FavProvider>
     <div className="itemList">
     { items.map( item => <ItemCard key={item.id} {...item}></ItemCard> )}
     </div>
+    </FavProvider>
   )
 }
 

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
-const Clicker = () => {
 
+const Clicker = () => {
 
   const [counter, setCounter] = useState(0) 
 
@@ -34,8 +34,7 @@ const Clicker = () => {
   const clickHandlerLess = () =>{
     console.log("hiciste una resta")
     if(counter > 0){
-      setCounter(counter - 1)
-    }
+      setCounter(counter - 1)    }
   }
 
   
@@ -51,4 +50,5 @@ const Clicker = () => {
     </div>
   )
 }
+
 export default Clicker

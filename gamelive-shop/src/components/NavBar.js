@@ -9,7 +9,7 @@ const NavBar = () => {
     <li><Link to='/PlayStation'>PLAYSTATION</Link></li>
     <li>XBOX</li>
     <li>NINTENDO</li>
-    <CartWidget/>
+    <Link to='/cart'><CartWidget></CartWidget></Link>
     </header>
   )
 }
