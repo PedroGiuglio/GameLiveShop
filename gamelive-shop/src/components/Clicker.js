@@ -46,7 +46,6 @@ const Clicker = () => {
         <div className="  text-center counter">{ counter }</div>
         <button onClick={clickHandlerMore} className="btn  bg-green-600 border-0 rounded-none">+</button>
       </div>
-        <button className="btn btn-info rounded-none text-white">Sumar al carrito</button>
     </div>
   )
 }

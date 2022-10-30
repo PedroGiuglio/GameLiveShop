@@ -1,31 +1,41 @@
 import { createContext, useContext, useState } from "react";
 
-const FavContext = createContext([]);
+const CartContext = createContext({
+    products: [],
+    addToCart: () => {},
+    clearCart: () => {},
+    count: 0,
+});
 
-const useFavs = () => {
-    return useContext( FavContext)
+const useCart = () => {
+    return useContext( CartContext)
 }
 
-const FavProvider = ({ children }) => {
 
-    const [favs, setFavs] = useState([]);
+const CartContextProvider = ({ children }) => {
+    
+    const [products, setProducts] = useState([])
 
-    const add = ( fav ) =>{
-        setFavs( favs => {
-            return favs.concat(fav)
-        })
+    const addToCart = (product) => {
+        setProducts( products => [...products, product])
+     }
+    
+    const clearCart = () => {
+    setProducts([])
     }
 
     const context = {
-        favs,
-        add
+        products: products,
+        addToCart: addToCart,
+        clearCart: clearCart,
+        count: products.length
     }
 
     return (
-        <FavContext.Provider value ={ context }>
+        <CartContext.Provider value ={ context }>
             { children }
-        </FavContext.Provider>
+        </CartContext.Provider>
     )
 }
 
-export { useFavs, FavProvider}
+export { useCart, CartContextProvider}

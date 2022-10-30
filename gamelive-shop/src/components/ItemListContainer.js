@@ -1,9 +1,9 @@
-import ItemList from "./ItemList"
+import ItemContainer from "./ItemContainer"
 
 const ItemListContainer = () => {
   return (
     <div className="itemListContainer">
-    <ItemList/>
+    <ItemContainer/>
 </div>
   )
 }

@@ -1,39 +1,36 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import Clicker from "./Clicker"
-import { useFavs } from "./context/AddContext"
-import { products } from "./ItemList"
+import { collection, doc, getDoc, getDocs, getFirestore } from "firebase/firestore";
+import { useCart } from "./context/AddContext";
 
 
 const ItemDetail = () => {
 
-  const { id: itemId } = useParams()
-  const [item, setItem] = useState({})
+  const { id } = useParams()
+  const { id: idParam} = useParams()
+
+  const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true)
-
-  const { favs, add } = useFavs();
-
+  const {addToCart} = useCart()
 
   useEffect(() => {
-    getItemDetails().then(response => {
-      setItem(response)
+    getProduct().then(response =>{
       setLoading(false)
     })
   }, [])
 
-  const getItemDetails = () => {
+  const getProduct = () => {
+    const db = getFirestore()
+    const productsCollection =  collection(db, 'items')
+    const docRef = doc( productsCollection, id)
+    getDoc( docRef ).then( res => {
+      setItem(res.data())
+    })
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(products.find(p => p.id == itemId))
-      }, 2000);
+        resolve(item.find(i => i.id == idParam))
+      }, 3000);
     })
-  }
-
-  const addHandler = () => {
-      add(item.name)
-      add('$' + item.price)
-      add(item.id)
-      add(<img src={item.pictureUrl} className="joya"></img>)   
   }
 
   if (loading) {
@@ -44,21 +41,26 @@ const ItemDetail = () => {
     )
   }
 
+  const addHandler = () => {
+    addToCart(item)
+  }
+  
+
 
   return (
-    <div className="sectionCardDetail">
-      <div className="card card-compact w-96 bg-base-100 shadow-xl itemCard">
-        <figure className="urlImg"><img src={item.pictureUrl} alt="videogames" /></figure>
-        <div className="card-body">
-          <h2 className="card-title uppercase font-bold">${item.price}</h2>
-          <p className="uppercase font-bold">{item.name}</p>
-          <div className="card-actions justify-end">
-            <Clicker />
-          </div>
-        </div>
-        <button onClick={addHandler} className="btn-primary">Agregar a carrito +</button>
+    <div className="itemListDetail">
+      <div className="backImg">
+        <img className="urlImg" src={item.img}></img>
       </div>
-    </div>
+      <div className="sectionTitle">
+        <h2>{item.title}</h2>
+        <h4>${item.price}</h4>
+      </div>
+      <div className="sectionStock">
+        <p>Stock disponible: {item.stock}</p>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={addHandler}>Agregar al Carrito</button>
+      </div>      
+</div>
   )
 }
 
