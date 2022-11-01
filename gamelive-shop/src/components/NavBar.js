@@ -17,11 +17,11 @@ export const CartWidget = () => {
 const NavBar = () => {
   return (
     <header>
-    <h3><Link to='/'>GameLive-Shop</Link></h3>
+    {/* <h3><Link to='/'>GameLive-Shop</Link></h3>
     <li><Link to='/PlayStation'>PlayStation</Link></li>
     <li><Link to='/Xbox'>Xbox</Link></li>
     <li><Link to='/Nintendo'>Nintendo</Link></li>
-    <Link to='/cart'><CartWidget></CartWidget></Link>
+    <Link to='/cart'><CartWidget></CartWidget></Link> */}
     </header>
   )
 }
