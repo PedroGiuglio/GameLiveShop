@@ -15,6 +15,7 @@ const firebaseConfig = {
   measurementId: "G-KN2FQNB6BH"
 };
 
+// eslint-disable-next-line
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
